@@ -12,11 +12,30 @@
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-navigation-drawer app class="bg-indigo" v-model="data" temporary>
-      <v-icon @click="data ? (data = false) : (data = true)">mdi-menu</v-icon>
-      <h1>route-link-1</h1>
-      <h1>route-link-2</h1>
-      <h1>route-link-3</h1>
+    <v-navigation-drawer app class="bg-lilac" v-model="data" temporary>
+      <v-icon
+        @click="data ? (data = false) : (data = true)"
+        class="mt-5 text-white"
+        >mdi-menu</v-icon
+      >
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :value="item"
+          active-color="primary"
+          router
+          :to="item.title"
+        >
+          <router-view :key="item.title">
+            <template>
+              <v-icon :icon="item.value"></v-icon>
+            </template>
+
+            <v-list-item-title v-text="item.title"></v-list-item-title>
+          </router-view>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </v-app>
 </template>
@@ -26,8 +45,14 @@ import { ref } from "vue";
 export default {
   setup() {
     const data = ref(true);
+    const items = [
+      { value: "mdi-account", title: "/" },
+      { value: "mdi-account", title: "/home" },
+      { value: "mdi-menu", title: "/dinner" },
+      { value: "mdi-delete", title: "/supper" },
+    ];
 
-    return { data };
+    return { data, items };
   },
 };
 </script>

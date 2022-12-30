@@ -1,9 +1,3 @@
-/**
- * plugins/vuetify.ts
- *
- * Framework documentation: https://vuetifyjs.com`
- */
-
 // Styles
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
@@ -19,13 +13,16 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
+          //set colors here
           primary: "#1867C0",
           secondary: "#5CBBF6",
+          lilac: "#C8A2C8",
         },
       },
     },
   },
   icons: {
+    //set icons here
     defaultSet: "mdi",
     sets: {
       mdi,
