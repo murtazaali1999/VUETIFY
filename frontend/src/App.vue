@@ -1,5 +1,6 @@
 <template>
-  <v-app>
+  <Dinner />
+  <v-app v-if="display">
     <v-toolbar flat app class="text-green-lighten-2 elevation-10">
       <v-icon @click="data ? (data = false) : (data = true)">mdi-menu</v-icon>
       <v-toolbar-title class="text-uppercase grey--text">
@@ -42,9 +43,12 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import Dinner from "./views/Dinner.vue";
+
 export default {
   setup() {
     const data = ref(true);
+    const display = ref(false);
     const items = [
       { value: "mdi-account", title: "/" },
       { value: "mdi-account", title: "/home" },
@@ -52,7 +56,8 @@ export default {
       { value: "mdi-delete", title: "/supper" },
     ];
 
-    return { data, items };
+    return { data, items, display };
   },
+  components: { Dinner },
 };
 </script>
