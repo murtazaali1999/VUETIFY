@@ -132,7 +132,7 @@
       </v-card-actions>
 
       <hr class="mb-3" />
-      <c-container>
+      <v-container>
         <v-form @submit.prevent="" class="pa-3">
           <v-row class="w-100">
             <v-col cols="10" class="">
@@ -151,7 +151,7 @@
             </v-col>
           </v-row>
         </v-form>
-      </c-container>
+      </v-container>
     </v-card>
   </v-container>
 </template>
