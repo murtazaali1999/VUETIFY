@@ -1,5 +1,6 @@
 <template>
-  <Dinner />
+  <Supper />
+  <Dinner v-if="display" />
   <v-app v-if="display">
     <v-toolbar flat app class="text-green-lighten-2 elevation-10">
       <v-icon @click="data ? (data = false) : (data = true)">mdi-menu</v-icon>
@@ -44,6 +45,7 @@
 <script lang="ts">
 import { ref } from "vue";
 import Dinner from "./views/Dinner.vue";
+import Supper from "./views/Supper.vue";
 
 export default {
   setup() {
@@ -58,6 +60,6 @@ export default {
 
     return { data, items, display };
   },
-  components: { Dinner },
+  components: { Dinner, Supper },
 };
 </script>
